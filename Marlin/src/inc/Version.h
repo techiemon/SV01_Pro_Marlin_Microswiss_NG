@@ -72,7 +72,7 @@
  * Define a generic printer name to be output to the LCD after booting Marlin.
  */
 #ifndef MACHINE_NAME
-  #define MACHINE_NAME "SV01 Pro"
+  #define MACHINE_NAME "Love Pro"
 #endif
 
 /**
