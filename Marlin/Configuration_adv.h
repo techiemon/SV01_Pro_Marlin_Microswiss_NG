@@ -1910,7 +1910,7 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-  #define LIN_ADVANCE_K 0.09    // Unit: mm compression per 1mm/s extruder speed
+  #define LIN_ADVANCE_K 0.0 // 0.09    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
   //#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
@@ -2836,7 +2836,7 @@
   #define STEALTHCHOP_I
   #define STEALTHCHOP_J
   #define STEALTHCHOP_K
-  #define STEALTHCHOP_E
+  // #define STEALTHCHOP_E
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -2862,7 +2862,7 @@
   //#define CHOPPER_TIMING_Z2 CHOPPER_TIMING_Z
   //#define CHOPPER_TIMING_Z3 CHOPPER_TIMING_Z
   //#define CHOPPER_TIMING_Z4 CHOPPER_TIMING_Z
-  #define CHOPPER_TIMING_E  CHOPPER_DEFAULT_24V      // For Extruders (override below)
+  //#define CHOPPER_TIMING_E  CHOPPER_TIMING     // For Extruders (override below)
   //#define CHOPPER_TIMING_E1 CHOPPER_TIMING_E
   //#define CHOPPER_TIMING_E2 CHOPPER_TIMING_E
   //#define CHOPPER_TIMING_E3 CHOPPER_TIMING_E
@@ -2885,9 +2885,9 @@
   //#define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
-    // #define CURRENT_STEP_DOWN     50  // [mA]
-    // #define REPORT_CURRENT_CHANGE
-    // #define STOP_ON_ERROR
+    #define CURRENT_STEP_DOWN     50  // [mA]
+    #define REPORT_CURRENT_CHANGE
+    #define STOP_ON_ERROR
   #endif
 
   /**
@@ -2979,7 +2979,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  #define SQUARE_WAVE_STEPPING
+  //#define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.

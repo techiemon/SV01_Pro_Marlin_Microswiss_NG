@@ -69,7 +69,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "JHAM" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "SV01 Pro, Techiemon" // Who made the changes.
 #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 #define MACVERSION      STRING_CONFIG_H_AUTHOR
 #define SOFTVERSION     SHORT_BUILD_VERSION
@@ -720,7 +720,7 @@
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
-#define PREVENT_LENGTHY_EXTRUDE
+#define PREVENT_LENGTHY_EXTRUDE // I can only extrude 5 x 10 mm then it stops atm.
 #define EXTRUDE_MAXLENGTH 1000
 
 //===========================================================================
@@ -875,16 +875,17 @@
 //#define I_DRIVER_TYPE  A4988
 //#define J_DRIVER_TYPE  A4988
 //#define K_DRIVER_TYPE  A4988
-#define E0_DRIVER_TYPE TMC2209
-#define E0_SERIAL_RX_PIN PB4
-#define E0_SERIAL_TX_PIN PB4
-// #define E1_DRIVER_TYPE TMC2209_STANDALONE
-// #define E2_DRIVER_TYPE TMC2209_STANDALONE
-// #define E3_DRIVER_TYPE TMC2209_STANDALONE
-// #define E4_DRIVER_TYPE TMC2209_STANDALONE
-// #define E5_DRIVER_TYPE TMC2209_STANDALONE
-// #define E6_DRIVER_TYPE TMC2209_STANDALONE
-// #define E7_DRIVER_TYPE TMC2209_STANDALONE
+#define E0_DRIVER_TYPE TMC2209_STANDALONE
+// vref fails at .75, running 2.2 atm but above 1.4 seems ok, TBD
+//#define E1_DRIVER_TYPE A4988
+//#define E2_DRIVER_TYPE A4988
+//#define E3_DRIVER_TYPE A4988
+//#define E4_DRIVER_TYPE A4988
+//#define E5_DRIVER_TYPE A4988
+//#define E6_DRIVER_TYPE A4988
+//#define E7_DRIVER_TYPE A4988
+// #define E0_SERIAL_TX_PIN PB4
+// #define E0_SERIAL_RX_PIN PB4
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
@@ -932,7 +933,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 141 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 141 } // 137.6
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -956,7 +957,7 @@
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
+  // #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1019,7 +1020,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-// #define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1832,7 +1833,7 @@
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
-  #define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
+  //#define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
 #endif
 
 //
@@ -1867,7 +1868,7 @@
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 230
+#define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED     70
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
